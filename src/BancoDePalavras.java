@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class BancoDePalavras {
 	
-	Vector<String> lista;
+	private Vector<String> lista;
 	
 	public BancoDePalavras() throws FileNotFoundException{
 		
