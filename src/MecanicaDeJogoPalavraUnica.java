@@ -31,18 +31,27 @@ public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 	}
 	
 	@Override
-	public String getPalavra(String p) {
+	public String getPalavra() {
 		return palavraEmbaralhada;
 	}
 
 	@Override
-	public boolean tentativa(String p) {
+	public boolean novaTentativa() {
+		return !this.fdj;
+	}
+	
+	@Override
+	public void tentativa(String p) {
 		if(palavraOriginal.equals(p)) {
 			this.fdj = true;
-			return true;
+			IO.acertou();
 		} else {
 			pontos -= 10;
-			return false;
+			if(this.pontos > 0) {
+				IO.tenteNovamente();
+			}else {
+				IO.terminou(this.getPalavra());
+			}
 		}
 		
 	}

@@ -5,9 +5,11 @@ public interface MecanicaDeJogo {
 	
 	public void setPalavra(String p) throws Exception ;
 	
-	public String getPalavra(String p);
+	public String getPalavra();
 	
-	public boolean tentativa(String p);
+	public boolean novaTentativa();
+
+	public void tentativa(String p);
 	
 	public int getPontos();
 	
