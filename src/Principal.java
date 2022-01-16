@@ -13,9 +13,7 @@ public class Principal {
 				mj.setEmbaralhador(new EmbaralhadorOrdemAlfabetica());
 				
 				try {
-					String palavra = bp.getPalavra();
-					System.out.println(palavra);
-					mj.setPalavra(palavra);
+					mj.setPalavra(bp.getPalavra());
 				}
 				catch(Exception e){
 					IO.imprimeException(e);
