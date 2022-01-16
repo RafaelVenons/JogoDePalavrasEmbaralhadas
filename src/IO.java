@@ -7,15 +7,32 @@ public class IO {
 	public IO() {
 		sc = new Scanner(System.in);
 	}
+
+	public void close() {
+		sc.close();
+	}
 	
 	public String entrada() {
 		System.out.print("Tentativa: ");
 		return sc.next().toUpperCase();
 	}
 	
-	public void close() {
-		sc.close();
+	public String mecanicaDeJogo(){
+		System.out.println("Escolha um modo de Jogo através do indice:");
+		System.out.println("1. Unico Jogador/Palavra Unica.");
+		System.out.println("2. Dois Jogadores.");
+		System.out.print("Opção: ");
+		switch(sc.nextInt()) {
+		case 1:
+			return "Palavra Unica";
+		case 2:
+			return "Dois Jogadores";
+		default :
+			System.out.println("Entrada invalida!");
+			return mecanicaDeJogo();
+		}
 	}
+	
 	
 	public static void imprimeException(Exception e) {
 		System.out.println(e);
