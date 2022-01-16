@@ -44,7 +44,7 @@ public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 	public void tentativa(String p) {
 		if(palavraOriginal.equals(p)) {
 			this.fdj = true;
-			IO.acertou();
+			IO.acertou(this.getPontos());
 		} else {
 			pontos -= 10;
 			if(this.pontos > 0) {

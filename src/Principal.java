@@ -13,9 +13,7 @@ public class Principal {
 				mj.setEmbaralhador(new EmbaralhadorOrdemAlfabetica());
 				
 				try {
-					String pa = bp.getPalavra();
-					System.out.println(pa);
-					mj.setPalavra(pa);
+					mj.setPalavra(bp.getPalavra());
 				}
 				catch(Exception e){
 					IO.imprimeException(e);
@@ -31,7 +29,7 @@ public class Principal {
 			io.close();
 		}
 		catch(FileNotFoundException fnfe){
-			System.out.println("Não foi possivel carregar o banco de palavras!");
+			IO.imprimeException(fnfe);
 		}
 	}
 

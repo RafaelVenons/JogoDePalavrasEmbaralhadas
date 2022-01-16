@@ -10,7 +10,7 @@ public class BancoDePalavras {
 	
 	public BancoDePalavras() throws FileNotFoundException{
 		
-		Scanner in = new Scanner(new FileReader("src\\dados.txt"));
+		Scanner in = new Scanner(new FileReader("src\\dads.txt"));
 		
 		this.lista = new Vector<String>();
 		

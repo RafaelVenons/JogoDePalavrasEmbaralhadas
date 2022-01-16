@@ -27,8 +27,9 @@ public class IO {
 		System.out.println("A palavra embaralhada é: " + palavra);
 	}
 	
-	public static void acertou() {
+	public static void acertou(int pontos) {
 		System.out.println("Parabens, você acertou a palavra!!!");
+		System.out.println("Você fez " + pontos + " pontos");
 	}
 	
 	public static void tenteNovamente() {
