@@ -11,7 +11,5 @@ public interface MecanicaDeJogo {
 
 	public void tentativa(String p);
 	
-	public int getPontos();
-	
 	public boolean fimDeJogo();
 }

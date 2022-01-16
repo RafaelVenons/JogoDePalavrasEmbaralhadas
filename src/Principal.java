@@ -6,14 +6,16 @@ public class Principal {
 		try {
 			
 			BancoDePalavras bp = new BancoDePalavras();
-			MecanicaDeJogo mj = new MecanicaDeJogoPalavraUnica();
+			MecanicaDeJogo mj = new MecanicaDeJogoDoisJogadores();
 			IO io = new IO();
 			do {
 				//Inicialização da Rodada
 				mj.setEmbaralhador(new EmbaralhadorOrdemAlfabetica());
 				
 				try {
-					mj.setPalavra(bp.getPalavra());
+					String palavra = bp.getPalavra();
+					System.out.println(palavra);
+					mj.setPalavra(palavra);
 				}
 				catch(Exception e){
 					IO.imprimeException(e);

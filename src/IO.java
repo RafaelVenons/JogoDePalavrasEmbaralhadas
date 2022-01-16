@@ -10,8 +10,7 @@ public class IO {
 	
 	public String entrada() {
 		System.out.print("Tentativa: ");
-		String entrada = sc.next();
-		return entrada;
+		return sc.next().toUpperCase();
 	}
 	
 	public void close() {
@@ -27,6 +26,14 @@ public class IO {
 		System.out.println("A palavra embaralhada é: " + palavra);
 	}
 	
+	public static void acertou(boolean jogador) {
+		if(jogador) {
+			System.out.println("Parabens, o Jogador 1 acertou a palavra!!!");
+		}else {
+			System.out.println("Parabens, o Jogador 2 acertou a palavra!!!");
+		}
+	}
+	
 	public static void acertou(int pontos) {
 		System.out.println("Parabens, você acertou a palavra!!!");
 		System.out.println("Você fez " + pontos + " pontos");
@@ -39,5 +46,13 @@ public class IO {
 	public static void terminou(String palavra) {
 		System.out.println("Errou... Infelismente suas tentativas acabaram");
 		System.out.println("A palavra era " + palavra);
+	}
+	
+	public static void vezDoJogador(boolean jogador) {
+		if(jogador) {
+			System.out.println("Vez do jogador 1");
+		}else {
+			System.out.println("Vez do jogador 2");
+		}
 	}
 }

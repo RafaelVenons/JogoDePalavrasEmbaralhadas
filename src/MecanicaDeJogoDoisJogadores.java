@@ -1,64 +1,54 @@
 
-public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
-	
+public class MecanicaDeJogoDoisJogadores implements MecanicaDeJogo {
+
+	private boolean vezDoJogador; 
 	private String palavraOriginal;
 	private String palavraEmbaralhada;
 	private Embaralhador e;
-	private int pontos;
 	private boolean fdj;
 	
-	MecanicaDeJogoPalavraUnica(){
+	public MecanicaDeJogoDoisJogadores(){
 		this.palavraOriginal = null;
 		this.e = null;
-		this.pontos = 0;
 		this.fdj = true;
+		this.vezDoJogador = true;
 	}
 	
 	@Override
 	public void setEmbaralhador(Embaralhador e) {
 		this.e = e;
 	}
-	
+
 	@Override
 	public void setPalavra(String p) throws Exception {
-		
+
 		if(e == null) throw new Exception("Embaralhador não definido");
 		
 		this.palavraOriginal = p;
 		this.palavraEmbaralhada = e.Embaralhar(p);
-		this.pontos = 100*p.length();
 		this.fdj = false;
 	}
-	
+
 	@Override
 	public String getPalavra() {
-		return palavraEmbaralhada;
+		return this.palavraEmbaralhada;
 	}
 
 	@Override
 	public boolean novaTentativa() {
-		return !this.fdj;
-	}
-	
-	@Override
-	public void tentativa(String p) {
-		if(palavraOriginal.equals(p)) {
-			this.fdj = true;
-			IO.acertou(this.getPontos());
-		} else {
-			pontos -= 10;
-			if(this.pontos > 0) {
-				IO.tenteNovamente();
-			}else {
-				this.fdj = true;
-				IO.terminou(this.getPalavra());
-			}
-		}
-		
+		if(this.fdj) return false;
+		IO.vezDoJogador(this.vezDoJogador);
+		return true;
 	}
 
-	public int getPontos() {
-		return this.pontos;
+	@Override
+	public void tentativa(String p) {
+		if(this.palavraOriginal.equals(p)) {
+			this.fdj = true;
+			IO.acertou(this.vezDoJogador);
+		}else {
+			this.vezDoJogador = !this.vezDoJogador;
+		}
 	}
 
 	@Override
