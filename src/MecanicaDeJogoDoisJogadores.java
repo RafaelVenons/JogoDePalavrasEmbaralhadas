@@ -2,13 +2,12 @@
 public class MecanicaDeJogoDoisJogadores implements MecanicaDeJogo {
 
 	private boolean vezDoJogador; 
-	private String palavraOriginal;
-	private String palavraEmbaralhada;
+	private String palavra;
 	private Embaralhador e;
 	private boolean fdj;
 	
 	public MecanicaDeJogoDoisJogadores(){
-		this.palavraOriginal = null;
+		this.palavra = null;
 		this.e = null;
 		this.fdj = true;
 		this.vezDoJogador = true;
@@ -24,14 +23,13 @@ public class MecanicaDeJogoDoisJogadores implements MecanicaDeJogo {
 
 		if(e == null) throw new Exception("Embaralhador não definido");
 		
-		this.palavraOriginal = p;
-		this.palavraEmbaralhada = e.Embaralhar(p);
+		this.palavra = p;
 		this.fdj = false;
 	}
 
 	@Override
 	public String getPalavra() {
-		return this.palavraEmbaralhada;
+		return this.e.Embaralhar(this.palavra);
 	}
 
 	@Override
@@ -43,7 +41,7 @@ public class MecanicaDeJogoDoisJogadores implements MecanicaDeJogo {
 
 	@Override
 	public void tentativa(String p) {
-		if(this.palavraOriginal.equals(p)) {
+		if(this.palavra.equals(p)) {
 			this.fdj = true;
 			IO.acertou(this.vezDoJogador);
 		}else {

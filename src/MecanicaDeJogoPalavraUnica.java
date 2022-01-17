@@ -1,14 +1,13 @@
 
 public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 	
-	private String palavraOriginal;
-	private String palavraEmbaralhada;
+	private String palavra;
 	private Embaralhador e;
 	private int pontos;
 	private boolean fdj;
 	
 	MecanicaDeJogoPalavraUnica(){
-		this.palavraOriginal = null;
+		this.palavra = null;
 		this.e = null;
 		this.pontos = 0;
 		this.fdj = true;
@@ -24,15 +23,14 @@ public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 		
 		if(e == null) throw new Exception("Embaralhador não definido");
 		
-		this.palavraOriginal = p;
-		this.palavraEmbaralhada = e.Embaralhar(p);
+		this.palavra = p;
 		this.pontos = 100*p.length();
 		this.fdj = false;
 	}
 	
 	@Override
 	public String getPalavra() {
-		return palavraEmbaralhada;
+		return e.Embaralhar(this.palavra);
 	}
 
 	@Override
@@ -42,7 +40,7 @@ public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 	
 	@Override
 	public void tentativa(String p) {
-		if(palavraOriginal.equals(p)) {
+		if(palavra.equals(p)) {
 			this.fdj = true;
 			IO.acertou(this.getPontos());
 		} else {
