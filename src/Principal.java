@@ -7,6 +7,7 @@ public class Principal {
 	public static MecanicaDeJogo mj;
 	
 	public static void main(String[] args) {
+
 		try {
 			bp = new BancoDePalavras();	
 		}
@@ -26,7 +27,7 @@ public class Principal {
 		
 		do {
 			//Inicialização da Rodada
-			mj.setEmbaralhador(new EmbaralhadorOrdemAlfabetica());
+			mj.setEmbaralhador(FactoryEmbaralhador.factory());
 			
 			try {
 				mj.setPalavra(bp.getPalavra());
@@ -44,6 +45,5 @@ public class Principal {
 		}while(!mj.fimDeJogo());
 		
 		io.close();
-	}
-
+	}	
 }
