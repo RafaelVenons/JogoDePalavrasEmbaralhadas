@@ -24,7 +24,7 @@ public class MecanicaDeJogoPalavraUnica implements MecanicaDeJogo {
 		if(e == null) throw new RuntimeException("Embaralhador não definido");
 		
 		this.palavra = p;
-		this.pontos = 100*p.length();
+		this.pontos = 10*p.length();
 		this.fdj = false;
 	}
 	
