@@ -10,21 +10,18 @@ public class BancoDePalavras {
 	
 	public BancoDePalavras() throws FileNotFoundException{
 		
-		Scanner in = new Scanner(new FileReader("src\\dados.txt"));
+		Scanner sc = new Scanner(new FileReader("src\\dados.txt"));
 		
 		this.lista = new Vector<String>();
 		
-		while (in.hasNextLine()) {
-			lista.add(in.nextLine());
+		while (sc.hasNextLine()) {
+			lista.add(sc.nextLine());
 		}
 		
-		in.close();
+		sc.close();
 	}
 	
 	public String getPalavra() {
-		
-		Random numRandomico = new Random();
-		return this.lista.get(numRandomico.nextInt(this.lista.size()));
-		
+		return this.lista.get(new Random().nextInt(this.lista.size()));
 	}
 }
