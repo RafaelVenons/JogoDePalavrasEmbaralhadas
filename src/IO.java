@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class IO {
 	
-	Scanner sc;
+	private Scanner sc;
 	
 	public IO() {
 		sc = new Scanner(System.in);
