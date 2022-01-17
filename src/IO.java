@@ -7,10 +7,6 @@ public class IO {
 	public IO() {
 		sc = new Scanner(System.in);
 	}
-
-	public void close() {
-		sc.close();
-	}
 	
 	public String entrada() {
 		System.out.print("Tentativa: ");
@@ -18,21 +14,33 @@ public class IO {
 	}
 	
 	public String mecanicaDeJogo(){
-		System.out.println("Escolha um modo de Jogo através do indice:");
-		System.out.println("1. Unico Jogador/Palavra Unica.");
-		System.out.println("2. Dois Jogadores.");
-		System.out.print("Opção: ");
-		switch(sc.nextInt()) {
-		case 1:
-			return "Palavra Unica";
-		case 2:
-			return "Dois Jogadores";
-		default :
-			System.out.println("Entrada invalida!");
-			return mecanicaDeJogo();
+		while(true){
+			System.out.println("Escolha um modo de Jogo através do indice:");
+			System.out.println("1. Unico Jogador/Palavra Unica.");
+			System.out.println("2. Dois Jogadores.");
+			System.out.print("Opção: ");
+			switch(sc.nextInt()) {
+			case 1:
+				return "Palavra Unica";
+			case 2:
+				return "Dois Jogadores";
+			default :
+				System.out.println("Entrada invalida!");
+			}
 		}
 	}
 	
+	public boolean jogarNovamente() {
+		System.out.print("Você deseja jogar novamente? (S/N): ");
+		String entrada = sc.next().toUpperCase();
+		if(entrada.equals("S") || entrada.equals("SIM")) {
+			System.out.println("--------------------------------------------------");
+			return true;
+		}
+		System.out.println("Obrigado por jogar!");
+		sc.close();
+		return false;
+	}
 	
 	public static void imprimeException(Exception e) {
 		System.out.println(e);

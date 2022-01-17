@@ -3,7 +3,7 @@ public interface MecanicaDeJogo {
 	
 	public void setEmbaralhador(Embaralhador e);
 	
-	public void setPalavra(String p) throws Exception ;
+	public void setPalavra(String p);
 	
 	public String getPalavra();
 	

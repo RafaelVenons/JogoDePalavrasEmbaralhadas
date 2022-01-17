@@ -16,34 +16,19 @@ public class Principal {
 			return;
 		}
 		
-		try {
-			io = new IO();
-			mj = FactoryMecanicaDeJogo.factory(io.mecanicaDeJogo());
-		}
-		catch(IllegalArgumentException iae){
-			IO.imprimeException(iae);
-			return;
-		}
+		io = new IO();
 		
 		do {
-			//Inicialização da Rodada
+			mj = FactoryMecanicaDeJogo.factory(io.mecanicaDeJogo());
 			mj.setEmbaralhador(FactoryEmbaralhador.factory());
-			
-			try {
-				mj.setPalavra(bp.getPalavra());
-			}
-			catch(Exception e){
-				IO.imprimeException(e);
-				return;
-			}
-			
+			mj.setPalavra(bp.getPalavra());
+						
 			IO.apresentaPalavra(mj.getPalavra());
+			
 			while(mj.novaTentativa()) {
 				mj.tentativa(io.entrada());
 			}
 			
-		}while(!mj.fimDeJogo());
-		
-		io.close();
+		}while(!mj.fimDeJogo() || io.jogarNovamente());
 	}	
 }
